@@ -7,15 +7,15 @@
     <link rel="shortcut icon" href="./src/favicon.ico">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body style="background-color: #ebebeb;">
-    <header class="header__container">
+    <header class="header__container sticky-top">
         <nav class="navbar bg-body-tertiary">
             <div class="container d-flex align-items-center">
                 <div class="d-flex align-items-center">
-                  <button class="btn btn-outline-success d-block d-md-none d-lg-none" type="submit" style="border:none; ">
-                    <img src="./src/hamburger.svg" alt="">
+                  <button class="btn btn-outline-primary d-block d-md-none d-lg-none" type="submit" style="border:none; ">
+                    <img src="/src/hamburger.svg" alt="">
                   </button>
                     <a class="navbar-brand" href="#">
                       <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt="Logo" width="50" height="40" class="d-inline-block align-text-top">
@@ -23,20 +23,21 @@
                     <div class="search__container d-none d-lg-block d-md-block" style="width: 420px;">
                         <form class="d-flex position-relative" role="search">
                           <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
-                          <button class="btn btn-outline-success position-relative" type="submit" style="border:none; right: 55px;">
-                            <img src="src/search.svg" alt="">
+                          <button class="btn btn-outline-primary position-relative" type="submit" style="border:none; right: 55px;">
+                            <img src="/src/search.svg" alt="">
                           </button>
                         </form>
                     </div>
                 </div>
                 <div class="d-flex">
-                  <button class="btn btn-outline-success d-block d-md-none d-lg-none" type="submit" style="border:none; ">
-                    <img src="src/search.svg" alt="">
+                  <button class="btn btn-outline-primary d-block d-md-none d-lg-none" type="submit" style="border:none; ">
+                    <img src="/src/search.svg" alt="">
+                    <img src="" alt="">
                   </button>
                 <form class="container-fluid justify-content-start d-none d-md-block d-lg-block">
                   <button type="button" class="btn btn-outline-primary">Create Post</button>
                 </form>
-                <img src="src/notification.svg" alt="" class="me-2" style="width:35px; height:35px;">
+                <img src="/src/notification.svg" alt="" class="me-2" style="width:35px; height:35px;">
                 <img style="width: 35px; height: 35px; border-radius: 100%; border-color:black; border:1px solid;" src="https://res.cloudinary.com/practicaldev/image/fetch/s--5A6wDr1l--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/1135488/fabde113-8c15-4ad5-bc65-907a26e4d145.png" alt="">
                 </div>
             </div>
@@ -44,23 +45,23 @@
     </header>
     <div class="container">
         <div class="row">
-            <aside class="aside-left-post__container col-lg-1 col-md-1 d-none d-sm-block position-fixed  ">
-                <div class="d-flex flex-column align-items-center mt-5 icon__color">
-                    <img src="./src/corazon.svg" class=" icon-heart mb-1">
+            <aside class="aside-left-post__container col-lg-1 col-md-1 d-none d-sm-block">
+                <div class="d-flex flex-column align-items-center mt-5 icon__color position-fixed">
+                    <img src="/src/corazon.svg" class=" icon-heart mb-1">
                     <span class="mb-4">0</span>
-                    <img src="./src/message.svg" class=" icon-message mb-1">
+                    <img src="/src/message.svg" class=" icon-message mb-1">
                     <span class="mb-4">0</span>
-                    <img src="./src/mark.svg" class=" icon-mark mb-1">
+                    <img src="/src/mark.svg" class=" icon-mark mb-1">
                     <span class="mb-4">4</span>
-                    <img src="./src/puntos.svg" class=" icon-puntos">
+                    <img src="/src/puntos.svg" class=" icon-puntos">
                 </div>
             </aside>            
             <main class="main-post__container col-12 col-md-9 col-lg-8 my-3 " >
                     <section class="card__section">
                         <div class="card">
-                            <img src="./src/mago.webp" class="card-img-top" alt="...">
+                            <img src="/src/mago.webp" class="card-img-top" alt="...">
                             <section class="poster-information__container d-flex ps-4 pt-3 ">
-                                <div class="image__container ps-4"><img class="rounded-circle" src="src/autoravatar.webp" alt="">
+                                <div class="image__container ps-4"><img class="rounded-circle" src="/src/autoravatar.webp" alt="">
                                 </div>
     
                                 <div class="info">
@@ -70,10 +71,10 @@
                             </section>
                             <section class="reactions__container d-flex  ">
                                 <span class=" me-3 ps-3">
-                                    <img class="ps-4" src="./src/sparkleheart.svg" alt="">
+                                    <img class="ps-4" src="/src/sparkleheart.svg" alt="">
                                     <span>4</span>
                                 </span>
-                                <span><img class="class=ps-4" src="./src/raised-hands.svg" alt="">
+                                <span><img class="class=ps-4" src="/src/raised-hands.svg" alt="">
                                     <span>4</span>
                                 </span>
                             </section>
@@ -95,12 +96,12 @@
                                     <p class="ps-4" For content sites — like chan.dev — I prefer alphabetical order.
                                     I want to see my files and folders all mixed up together.</p>
                                     <div>
-                                        <img class="img-fluid t ps-4" src="./src/capture1.jpg" alt="">
+                                        <img class="img-fluid t ps-4" src="/src/capture1.jpg" alt="">
                                     </div>
                                     <h3 class="ps-4">How to change the setting</h3>
                                     <p class="ps-4 ">To change the default behavior, open Settings and find the option for Explorer: Sort
                                         Order.</p>
-                                    <img class="img-fluid ps-4" src="./src/settings.png" alt="">
+                                    <img class="img-fluid ps-4" src="/src/settings.png" alt="">
                                     <p class="ps-4">With this option enabled, files and folders are interwoven in the explorer.</p>
                                     <h3 class="ps-4">Why I prefer mixed sort order</h3>
                                     <p class="ps-4">On chan.dev, I have lots of markdown files.
@@ -117,14 +118,14 @@
                                     </p>
                                     <div class="code-block">
                                         <pre><code class="code">
-                                            // chan.dev/.vscode/settings.json
+                                            <!-- chan.dev/.vscode/settings.json
                                             {
                                               "explorer.sortOrder": "mixed"
-                                            }
+                                            } -->
                                         </code></pre>
                                     </div>
                                     
-                                        <img class="img-fluid ps-4" src="./src/video yotube.JPG">
+                                        <img class="img-fluid ps-4" src="/src/video yotube.JPG">
                              
                             </div>
                     </section>
@@ -136,20 +137,20 @@
                                 
                               
                             </div>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text ps-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                           </div>
                     </section>
                 <section class="card mt-3 px-5 pt-2">
                     <p>DEV Community</p>
                     <p class="fs-2 fw-bold">🚀 Update Your DEV Experience Level:</p>
-                    <img src="./src/image-devCommunity.png" alt="">
+                    <img src="/src/image-devCommunity.png" alt="">
                     <p class="fs-5 mt-3 ">Go to <a href="https://dev.to/settings/customization"> your customization settings </a> to nudge your home feed to show content more relevant to your developer experience level. 🛠</p>
                 </section>
                 <section class="card mt-3 p-5 more__info">
                     <p class="fs-3 fw-bolder">Read next</p>
                     <div class="col d-flex align-items-center">
                         <span >
-                            <img src="./src/user1.webp" style="width: 64px;" class="rounded-circle">
+                            <img src="/src/user1.webp" style="width: 64px;" class="rounded-circle">
                         </span>
                         <div class="row">
                              <span class="mt-0 fs-4 fw-bolder lh-sm ms-3 mt-4">Build an Inventory and Order Management App with Google Sheets and ToolJet</span>
@@ -158,7 +159,7 @@
                     </div>
                     <div class="col d-flex align-items-center">
                         <span >
-                            <img src="./src/user2.webp" style="width: 64px;" class="rounded-circle">
+                            <img src="/src/user2.webp" style="width: 64px;" class="rounded-circle">
                         </span>
                         <div class="row">
                              <span class="mt-0 fs-4 fw-bolder lh-sm ms-3 mt-4">Integrating Preline UI in Flask Apps</span>
@@ -167,7 +168,7 @@
                     </div>
                      <div class="col d-flex align-items-center">
                         <span >
-                            <img src="./src/user3.webp" style="width: 64px;" class="rounded-circle">
+                            <img src="/src/user3.webp" style="width: 64px;" class="rounded-circle">
                         </span>
                         <div class="row">
                              <span class="mt-0 fs-4 fw-bolder lh-sm ms-3 mt-4">Building a Document Viewer with react-pdf</span>
@@ -176,7 +177,7 @@
                     </div>
                     <div class="col d-flex align-items-center">
                         <span >
-                            <img src="./src/user4.webp" style="width: 64px;" class="rounded-circle">
+                            <img src="/src/user4.webp" style="width: 64px;" class="rounded-circle">
                         </span>
                         <div class="row">
                              <span class="mt-0 fs-4 fw-bolder lh-sm ms-3 mt-4">How to Change a Webpage UI with a Chrome Extension</span>
@@ -191,7 +192,7 @@
                 <section class="info__user mt-3">
                     <div class="card" style="border-top: 30px solid #010b1b;">
                         <div class="info__nameUser d-flex ">
-                            <img src="./src/perfil-user.webp" class="card-img-top rounded-circle mx-3" style="width: 48px; height: 48px; margin-top: -20px;" alt="...">
+                            <img src="/src/perfil-user.webp" class="card-img-top rounded-circle mx-3" style="width: 48px; height: 48px; margin-top: -20px;" alt="...">
                             <h5 class="card-title">chantastic</h5>
                         </div>
                         <div class="card-body">
@@ -243,7 +244,7 @@
                <section class="card__anuncio">
                 <div class="card my-3" >
                 <div class="info__anuncios d-flex ">
-                  <span class="text-dark m-3 col "> DEV Community</span> <img src="./src/puntos.svg" alt="" class="me-3">
+                  <span class="text-dark m-3 col "> DEV Community</span> <img src="/src/puntos.svg" alt="" class="me-3">
                 </div>
                 <div class="card-body">
                 <div class="d-grid gap-2">
