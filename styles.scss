@@ -355,6 +355,11 @@ body {
                 }
             }
         }        
+        #delete__button{
+            display: flex;
+            flex-direction: row-reverse;
+            margin-top: 10px;
+        }
         &:hover {
             cursor: pointer;
         }

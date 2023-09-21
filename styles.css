@@ -288,6 +288,11 @@ body {
 .main-principal__container .cards__container .card .all-comments__container .all-comments__text {
   font-size: 0.875rem;
 }
+.main-principal__container .cards__container #delete__button {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10px;
+}
 .main-principal__container .cards__container:hover {
   cursor: pointer;
 }
