@@ -354,10 +354,13 @@ body {
                     font-size: 0.875rem;
                 }
             }
+        }
+        .deleteButton__container{
+            flex-direction: row-reverse;
+            text-align: right;
+            
         }        
         #delete__button{
-            display: flex;
-            flex-direction: row-reverse;
             margin-top: 10px;
         }
         &:hover {
