@@ -121,6 +121,13 @@ const posts={
     },
 }
 
-const search =document.querySelector('#search__bar')
+const search =document.querySelector('#search__button')
+
+search.addEventListener('click',()=>{
+    const searching = document.querySelector('#search__bar')
+})
+
+
+
 
 console.log()
