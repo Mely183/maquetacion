@@ -3,6 +3,7 @@ const search = window.location.search;
 const url = new URLSearchParams(search);
 const ID_POST = url.get('id');
 
+const input_url = document.querySelector("#imageUrl");
 const input_tittle = document.querySelector('#postTitle');
 const input_post = document.querySelector('#floatingTextarea');
 const buttonSave = document.querySelector('#saveChanges');
@@ -10,6 +11,7 @@ const buttonSave = document.querySelector('#saveChanges');
 
 const updatePost = async() => {
     const post = {
+        url : input_url,
         tittle: input_tittle,
         description: input_post,
     };
@@ -35,6 +37,7 @@ const getPostByID = async() => {
     const info = await fetch(url);
     const parsed = await info.json();
     console.log(parsed)
+    input_url.value = parsed.url;
     input_tittle.value = parsed.tittle;
     input_post.value = parsed.description;
 };
