@@ -121,12 +121,27 @@ const posts={
     },
 }
 
+const button_delete = document.createElement('#delete__button')
+
+button_delete.addEventListener('click', (event) => {
+    const elementToRemove = event.target.dataset.avatarID
+    // console.log(event)
+    listAvatar.splice(Number(elementToRemove), 1)
+    // console.log(listAvatar)
+    cleanList()
+    // form()
+    renderList(listAvatar)
+})
+
 const search =document.querySelector('#search__button')
 
 search.addEventListener('click',()=>{
     const searching = document.querySelector('#search__bar')
+
+    console.log(searching)
 })
 
+// const search_result = 
 
 
 
