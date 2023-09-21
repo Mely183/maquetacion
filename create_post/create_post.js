@@ -3,7 +3,11 @@
  const emptyTitleAlert = document.getElementById('emptyTitleAlert');
 
  const postInfo = {
-    title: ''
+    imagen:'',
+    title: '',
+    tags:'',
+    description:''
+
 };
 
 saveInfo.addEventListener('click', function() {
