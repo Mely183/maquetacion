@@ -1,16 +1,24 @@
  const postTitle = document.getElementById('postTitle');
  const saveInfo = document.getElementById('saveInfo');
+ const emptyTitleAlert = document.getElementById('emptyTitleAlert');
 
- 
- saveInfo.addEventListener('click', function() {
-     const newTitle = prompt('Enter a new post title:');
+ const postInfo = {
+    title: ''
+};
 
-     if (postTitleInput.value.trim() === '') {
-        alert('Por favor, ingresa un título antes de guardar la información.');
+saveInfo.addEventListener('click', function() {
+    const newTitle = postTitle.value.trim();
+
+    if (newTitle === '') { 
+        // El título está vacío, muestra la alerta
+        emptyTitleAlert.classList.remove('d-none');
     } else {
-       
+        // El título no está vacío, oculta la alerta si estaba visible
+        emptyTitleAlert.classList.add('d-none');
+        console.log(newTitle)
+        // Puedes hacer algo con el título no vacío aquí si es necesario
     }
-     if (newTitle !== null) { 
-         postTitleInput.value = newTitle;
-     }
- });
+});
+
+
+
