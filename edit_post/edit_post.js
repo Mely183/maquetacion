@@ -1,6 +1,8 @@
 const URL_API ="https://devs-imparables-default-rtdb.firebaseio.com/"
 const search = window.location.search;
+console.log(search)
 const url = new URLSearchParams(search);
+console.log(url)
 const ID_POST = url.get('id');
 
 const input_url = document.querySelector("#imageUrl");
@@ -42,4 +44,4 @@ const getPostByID = async() => {
     input_post.value = parsed.description;
 };
 
-getPostById();
+getPostByID();
