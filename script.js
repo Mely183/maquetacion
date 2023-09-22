@@ -66,7 +66,7 @@ const posts={
             userAvatar: "/src/user4.webp",
         },
         fecha:'09-20-2023',
-        titulo:'Don’t block your users! Why you should adopt event-driven architecture',
+        titulo:"Don't block your users! Why you should adopt event-driven architecture",
         tags:['javascript','api', 'webdev', 'typescript'],
         desciption:"Building event-driven applications offers a flexible, but markedly different approach to building applications. Let’s take a look at how an event-driven architecture can benefit your users, developers, and your application code.",
         reacciones:{
