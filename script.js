@@ -245,11 +245,14 @@ const getInfoApi = async () => {
     const parsed = await response.json();
     console.log(parsed);
     const array_post = parserResponseFireBase(parsed);
+    postList = array_post
     renderList(array_post);
   } catch (error) {
     console.error(error);
   }
 };
+
+let postList = []
 
 getInfoApi();
 
@@ -259,6 +262,37 @@ searchButton.addEventListener('click', ()=> {
   const searchInput = document.querySelector("#data-search")
   const searchValue = searchInput.value
 
+  const filterList = []
+
+  // console.log(filterList)
+
+  for( let index = 0; index<postList.length; index++){
+    
+    
+    if (postList[index].titulo.includes(searchValue) ){
+      filterList.push(postList[index])
+    }
+    renderList(filterList)
+  }
+  
+  // for (const key in posList[i].titulo){
+
+  // }
+
+  // postList.Object.value(() => {
+  //   console.log('ahi la llevamos')
+  // })
+
+ // const searchResult = parsedResponse.map((searchResult, parsedResponse)=>{
+  //   if (searchResult.includes(searchValue)){
+
+  //   }
   console.log(searchValue)
-})
+  })
+
+
+  // parsedResponse
+
+
+
 
