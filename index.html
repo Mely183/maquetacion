@@ -24,13 +24,13 @@
                       <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt="Logo" width="50" height="40" class="d-inline-block align-text-top">
                     </a>
                     <div class="search__container d-none d-lg-block d-md-block" style="width: 420px;">
-                        <form class="d-flex position-relative" role="search" id="search__bar">
-                          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" id="search__button">
-                          <button class="btn btn-outline-primary position-relative" type="submit" style="border:none; right: 55px;">
+                        <form class="d-flex position-relative" id="search__bar">
+                          <input class="form-control me-2" type="text" placeholder="Search..." aria-label="Search" id="data-search">
+                          <button class="btn btn-outline-primary position-relative" type="button" style="border:none; right: 55px;" id="search__button">
                             <img src="/src/search.svg" alt="">
                           </button>
                         </form>
-                    </div>
+                      </div>
                 </div>
                 <div class="d-flex align-items-center">
                   <button class="btn btn-outline-primary d-block d-md-none d-lg-none" type="submit" style="border:none" id="search__button">
@@ -313,13 +313,13 @@
                         <a class="item__link nav-link" href="#">Top</a>
                     </li>
                 </ul>
-                <section class="cards__container">
-                    <div class="card">
-                        <img src="/src/post-1.png" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <div class="autor__container d-flex d-row align-items-center ms-1">
-                                <img src="/src/autor-post-1.webp" alt="" class="autor__pic" />
-                                <div class="autor-info__container d-flex flex-column ms-2">
+                <section id="section_cards" class="cards__container">
+                    <!-- <div id="post_container" class="card">
+                        <img id="post_image" src="/src/post-1.png" class="card-img-top" alt="..." />
+                        <div id="body" class="card-body">
+                            <div id="autor" class="autor__container d-flex d-row align-items-center ms-1">
+                                <img id="autor_image" src="/src/autor-post-1.webp" alt="" class="autor__pic" />
+                                <div id="autor_info" class="autor-info__container d-flex flex-column ms-2">
                                     <span class="autor__label">chantastic</span>
                                     <span class="date__label">Jul 25</span>
                                 </div>
@@ -338,10 +338,10 @@
                                 <li class="ms-3">#productivity</li>
                                 <li class="ms-3">#webdev</li>
                             </ul>
-                            <div
+                            <div id="info_container"
                                 class="info__container d-flex justify-content-between align-items-center ms-md-5 ms-lg-5">
-                                <div class="detail__container d-flex align-items-center">
-                                    <a href="" class="reactions__link link-underline-light d-flex align-items-center">
+                                <div id="detail_container" class="detail__container d-flex align-items-center">
+                                    <a id="reacton_link" href="" class="reactions__link link-underline-light d-flex align-items-center">
                                         <div class="reactions-pic__container z-3">
                                             <img src="/src/heart.svg" alt="" class="reaction__pic" />
                                         </div>
@@ -823,7 +823,7 @@
                                         comments</strong></a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </section>
             </main>
             <aside class="aside-right-principal__container d-none col-lg-3 d-lg-block mt-2">
