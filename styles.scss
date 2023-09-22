@@ -470,3 +470,22 @@ body {
           
          }
 }
+
+
+.button-edit-color{
+    background-color: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.1);
+    border-radius: 0.375rem;
+    padding: 12px 15px;
+    font-size: 12px;
+
+    // position: absolute;
+    // top: 380px;
+    // right: 40px;
+}
+
+
+.button-edit-color:hover{
+    background-color: rgba(244, 50, 6, 0.1);
+}
+
