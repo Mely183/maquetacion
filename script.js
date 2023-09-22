@@ -253,3 +253,12 @@ const getInfoApi = async () => {
 
 getInfoApi();
 
+const searchButton = document.querySelector("#search__button")
+
+searchButton.addEventListener('click', ()=> {
+  const searchInput = document.querySelector("#data-search")
+  const searchValue = searchInput.value
+
+  console.log(searchValue)
+})
+
