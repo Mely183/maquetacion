@@ -1,4 +1,4 @@
-const URL_API ="https://devs-imparables-default-rtdb.firebaseio.com/"
+const URL_API ="https://devs-imparables-default-rtdb.firebaseio.com/-NeuhfxdY4P7eeRd1cfd"
 const search = window.location.search;
 console.log(search)
 const url = new URLSearchParams(search);
@@ -76,12 +76,12 @@ function addSelectedTag(tag) {
 // FUNCION PARA ACTUALIZAR POST 
 const updatePost = async() => {
     const post = {
-        url : input_url,
-        tittle: input_tittle,
-        description: input_post,
+        url : input_url.value,
+        titulo: input_tittle.value,
+        description: input_post.value,
     };
 
-    const url = URL_API + ID_POST + '.json';
+    const url = URL_API + '.json'; // ID_POST +
     const response = await fetch(url, {
         method: 'PATCH',
         body: JSON.stringify(post)
@@ -98,12 +98,12 @@ buttonSave.addEventListener('click', () => {
 
 // FUNCION PARA OBTENER LA INFORMACION DEL POST DESDE QUE SE MUESTRA PANTALLA EDIT POST
 const getPostByID = async() => {
-    const url = URL_API + ID_POST + '.json';
+    const url = URL_API +'.json';  //ID_POST + 
     const info = await fetch(url);
     const parsed = await info.json();
     console.log(parsed)
     input_url.value = parsed.url;
-    input_tittle.value = parsed.tittle;
+    input_tittle.value = parsed.titulo;
     input_post.value = parsed.description;
 };
 
