@@ -4,16 +4,16 @@ const description = document.getElementById('postDescription');
 const saveInfo = document.getElementById('saveInfo');
 const emptyTitleAlert = document.getElementById('emptyTitleAlert');
 
-// Define el elemento select y el contenedor de etiquetas seleccionadas
-const selectElement = document.getElementById('tags'); // Cambiado de 'selectTags' a 'tags'
-const selectedTagsContainer = document.getElementById('selectedTagsContainer'); // Cambiado de '.d-flex' a 'selectedTagsContainer'
 
+const selectElement = document.getElementById('tags'); 
+const selectedTagsContainer = document.getElementById('selectedTagsContainer'); 
+const maxSelectedTags = 4;
+let selectedTags = [];
 // ETIQUETAS
 const tagsArray = [
     "webdev", "javascript", "beginners", "programming", "tutorial", "react", "python"
 ];
 
-// Agrega las etiquetas al elemento select
 for (let i = 0; i < tagsArray.length; i++) {
     const tag = tagsArray[i];
     const option = document.createElement('option');
@@ -22,20 +22,28 @@ for (let i = 0; i < tagsArray.length; i++) {
     selectElement.appendChild(option);
 }
 
-// Agrega un evento de cambio al elemento select
+
 selectElement.addEventListener('change', function () {
-    const selectedTags = Array.from(selectElement.selectedOptions).map(option => option.value);
+    const selectedTag = selectElement.value;
 
-    selectedTagsContainer.innerHTML = '';
-
-    selectedTags.forEach(tag => {
-        addSelectedTag(tag);
-    });
+    if (selectedTag && selectedTags.length < maxSelectedTags) {
+        if (selectedTags.length < maxSelectedTags) {
+            addSelectedTag(selectedTag);
+            selectedTags.push(selectedTag);
+            selectElement.value = 'Add up to 4 tags...'; 
+        }
+    }
 });
 
+/**
+ * Agrega una etiqueta seleccionada al contenedor de etiquetas y almacena la etiqueta 
+ * en el arreglo de etiquetas seleccionadas.
+ *
+ * @param {string} tag - La etiqueta que se va a agregar.
+ */
 function addSelectedTag(tag) {
     const tagDiv = document.createElement('div');
-    tagDiv.classList.add('alert', 'alert-primary');
+    tagDiv.classList.add('alert', 'alert-primary', 'd-inline-block');
 
     const tagText = document.createElement('span');
     tagText.textContent = tag;
@@ -45,6 +53,11 @@ function addSelectedTag(tag) {
     removeButton.classList.add('btn-close');
 
     removeButton.addEventListener('click', function () {
+        const index = selectedTags.indexOf(tag);
+        if (index !== -1) {
+            selectedTags.splice(index, 1);
+        }
+
         selectedTagsContainer.removeChild(tagDiv);
     });
 
@@ -71,7 +84,6 @@ saveInfo.addEventListener('click', function () {
     const newTitle = postTitle.value.trim();
     const newImage = imageUrl.value.trim();
     const newDescription = description.value;
-    const selectedTags = Array.from(selectElement.selectedOptions).map(option => option.value);
 
     if (newTitle === '') { 
         emptyTitleAlert.classList.remove('d-none');
@@ -80,8 +92,8 @@ saveInfo.addEventListener('click', function () {
         postInfo.titulo = newTitle;
         postInfo.url = newImage;
         postInfo.description = newDescription;
-        postInfo.tags = selectedTags;
-        console.log(newTitle)
+        postInfo.tags = selectedTags; 
+        console.log(newTitle);
         postSave();
     }
 });
