@@ -11,6 +11,69 @@ const input_post = document.querySelector('#floatingTextarea');
 const buttonSave = document.querySelector('#saveChanges');
 
 
+// CREACION DE ETIQUETAS
+const selectElement = document.getElementById('tags'); 
+const selectedTagsContainer = document.getElementById('selectedTagsContainer'); 
+const maxSelectedTags = 4;
+let selectedTags = [];
+
+const tagsArray = [
+    "webdev", "javascript", "beginners", "programming", "tutorial", "react", "python"
+];
+
+for (let i = 0; i < tagsArray.length; i++) {
+    const tag = tagsArray[i];
+    const option = document.createElement('option');
+    option.value = tag;
+    option.text = tag;
+    selectElement.appendChild(option);
+}
+
+
+selectElement.addEventListener('change', function () {
+    const selectedTag = selectElement.value;
+
+    if (selectedTag && selectedTags.length < maxSelectedTags) {
+        if (selectedTags.length < maxSelectedTags) {
+            addSelectedTag(selectedTag);
+            selectedTags.push(selectedTag);
+            selectElement.value = 'Add up to 4 tags...'; 
+        }
+    }
+    console.log(selectedTags)
+});
+
+
+function addSelectedTag(tag) {
+    const tagDiv = document.createElement('div');
+    tagDiv.classList.add('alert', 'alert-primary', 'd-inline-block');
+
+    const tagText = document.createElement('span');
+    tagText.textContent = tag;
+    tagText.classList.add('me-2');
+
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('btn-close');
+
+    removeButton.addEventListener('click', function () {
+        const index = selectedTags.indexOf(tag);
+        if (index !== -1) {
+            selectedTags.splice(index, 1);
+        }
+
+        selectedTagsContainer.removeChild(tagDiv);
+    });
+
+    tagDiv.appendChild(tagText);
+    tagDiv.appendChild(removeButton);
+
+    selectedTagsContainer.appendChild(tagDiv);
+}
+
+
+
+
+// FUNCION PARA ACTUALIZAR POST 
 const updatePost = async() => {
     const post = {
         url : input_url,
@@ -33,7 +96,7 @@ buttonSave.addEventListener('click', () => {
     updatePost()
 });
 
-
+// FUNCION PARA OBTENER LA INFORMACION DEL POST DESDE QUE SE MUESTRA PANTALLA EDIT POST
 const getPostByID = async() => {
     const url = URL_API + ID_POST + '.json';
     const info = await fetch(url);
