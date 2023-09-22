@@ -245,10 +245,40 @@ const getInfoApi = async () => {
     const parsed = await response.json();
     console.log(parsed);
     const array_post = parserResponseFireBase(parsed);
+    postList = array_post
     renderList(array_post);
   } catch (error) {
     console.error(error);
   }
 };
 
+let postList = []
+
 getInfoApi();
+
+const searchButton = document.querySelector("#search__button")
+
+searchButton.addEventListener('click', ()=> {
+  const searchInput = document.querySelector("#data-search")
+  const searchValue = searchInput.value
+
+  const filterList = []
+
+  for( let index = 0; index<postList.length; index++){
+      
+    if (postList[index].titulo.includes(searchValue) ){
+      filterList.push(postList[index])
+    } 
+
+  }
+  console.log(filterList)
+  // renderPost(filterList)
+
+  // console.log(filterList)
+  })
+
+
+
+
+
+
