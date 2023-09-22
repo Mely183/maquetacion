@@ -264,34 +264,20 @@ searchButton.addEventListener('click', ()=> {
 
   const filterList = []
 
-  // console.log(filterList)
-
   for( let index = 0; index<postList.length; index++){
-    
-    
+      
     if (postList[index].titulo.includes(searchValue) ){
       filterList.push(postList[index])
-    }
-    renderList(filterList)
+    } 
+
   }
-  
-  // for (const key in posList[i].titulo){
+  console.log(filterList)
+  // renderPost(filterList)
 
-  // }
-
-  // postList.Object.value(() => {
-  //   console.log('ahi la llevamos')
-  // })
-
- // const searchResult = parsedResponse.map((searchResult, parsedResponse)=>{
-  //   if (searchResult.includes(searchValue)){
-
-  //   }
-  console.log(searchValue)
+  // console.log(filterList)
   })
 
 
-  // parsedResponse
 
 
 
