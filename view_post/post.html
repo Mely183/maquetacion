@@ -21,19 +21,18 @@
                         style="border:none; ">
                         <img src="/src/hamburger.svg" alt="">
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/index.html">
                         <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
                             alt="Logo" width="50" height="40" class="d-inline-block align-text-top">
                     </a>
                     <div class="search__container d-none d-lg-block d-md-block" style="width: 420px;">
-                        <form class="d-flex position-relative" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
-                            <button class="btn btn-outline-primary position-relative" type="submit"
-                                style="border:none; right: 55px;">
-                                <img src="/src/search.svg" alt="">
-                            </button>
+                        <form class="d-flex position-relative" id="search__bar">
+                          <input class="form-control me-2" type="text" placeholder="Search..." aria-label="Search" id="data-search">
+                          <button class="btn btn-outline-primary position-relative" type="button" style="border:none; right: 55px;" id="search__button">
+                            <img src="/src/search.svg" alt="">
+                          </button>
                         </form>
-                    </div>
+                      </div>    
                 </div>
                 <div class="d-flex">
                     <button class="btn btn-outline-primary d-block d-md-none d-lg-none" type="submit"
@@ -42,7 +41,7 @@
                         <img src="" alt="">
                     </button>
                     <form class="container-fluid justify-content-start d-none d-md-block d-lg-block">
-                        <button type="button" class="btn btn-outline-primary">Create Post</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:5500/create_post/create_post.html'" id="create_post__button">Create Post</button>
                     </form>
                     <img src="/src/notification.svg" alt="" class="me-2" style="width:35px; height:35px;">
                     <img style="width: 35px; height: 35px; border-radius: 100%; border-color:black; border:1px solid;"
@@ -80,7 +79,7 @@
                             </div>
 
                             <div class="button-edit ms-auto pe-4">
-                                <button class="button-edit-color" id="buttonEdit" data-post="">
+                                <button class="button-edit-color" id="buttonEdit" data-post="" type="button" onclick="location.href='https://127.0.0.1:5500/edit_post/edit_post.html'">
                                     Edit
                                 </button>
                             </div>
