@@ -95,6 +95,8 @@ saveInfo.addEventListener('click', function () {
         postInfo.tags = selectedTags; 
         console.log(newTitle);
         postSave();
+        
+        window.location.href = "../index.html";
     }
 });
 
@@ -159,3 +161,12 @@ inputDescription.addEventListener("click", function() {
       In addition to images for the post's content, you can also drag and drop a cover image.</p>
     `;
   });
+
+//Boton de cancelar
+
+const cancelBtn = document.getElementById("cancelBtn");
+
+cancelBtn.addEventListener("click", () => {
+    window.location.href = "../index.html";
+});
+
