@@ -21,19 +21,18 @@
                         style="border:none; ">
                         <img src="/src/hamburger.svg" alt="">
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/index.html">
                         <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
                             alt="Logo" width="50" height="40" class="d-inline-block align-text-top">
                     </a>
                     <div class="search__container d-none d-lg-block d-md-block" style="width: 420px;">
-                        <form class="d-flex position-relative" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
-                            <button class="btn btn-outline-primary position-relative" type="submit"
-                                style="border:none; right: 55px;">
-                                <img src="/src/search.svg" alt="">
-                            </button>
+                        <form class="d-flex position-relative" id="search__bar">
+                          <input class="form-control me-2" type="text" placeholder="Search..." aria-label="Search" id="data-search">
+                          <button class="btn btn-outline-primary position-relative" type="button" style="border:none; right: 55px;" id="search__button">
+                            <img src="/src/search.svg" alt="">
+                          </button>
                         </form>
-                    </div>
+                      </div>    
                 </div>
                 <div class="d-flex">
                     <button class="btn btn-outline-primary d-block d-md-none d-lg-none" type="submit"

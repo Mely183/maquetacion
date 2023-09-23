@@ -236,7 +236,7 @@ getInfoApi();
 
 const searchButton = document.querySelector("#search__button")
 
-searchButton.addEventListener('click', ()=> {
+searchButton.addEventListener('click', (event)=> {
   const searchInput = document.querySelector("#data-search")
   const searchValue = searchInput.value
 
@@ -250,9 +250,9 @@ searchButton.addEventListener('click', ()=> {
 
   }
   console.log(filterList)
-  // renderPost(filterList)
+  renderPost(filterList)
 
-  // console.log(filterList)
+  console.log(filterList)
   })
 
 // const button_delete = document.createElement('#delete__button')
