@@ -1,148 +1,284 @@
-const posts={
-    post1:{
-        url:'https://res.cloudinary.com/practicaldev/image/fetch/s--VTiIZVxa--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://raw.githubusercontent.com/pchol22/kumo-articles/master/blog-posts/learn-serverless/front/assets/cover.png',
-        usuario:{
-            userName:'Pierre Chollet',
-            userAvatar: "/src/user2.webp",
-        },
-        fecha:'09-20-2023',
-        titulo:'Learn serverless on AWS step-by-step: Deploy a frontend!',
-        tags:['serverless','aws','javascript','tutorial'],
-        desciption:"In this series, I try to explain the basics of serverless on AWS, to enable you to build your own serverless applications. During the last 11 articles, we tackled together a lot of 'backend' services, creating small apps and interacting with them with HTTP requests. Today, let's start to close the loop and create a frontend, deployed on AWS, and able to interact with our backend services. What will we do today? Create a simple monorepo containing a frontend and a backend. Create a minimalistic backend. Create a frontend interacting with it, and deploy it on AWS!  All the code of this article is available on this repository.",
-        reacciones:{
-            love:14,
-            amazing:6,
-            mind_blowing:6,
-            thanks:5,
-            fire:6,
-        },
-        num_comentarios:10,
-        readTime:'10 min',
-    },
-    post2:{
-        url:'https://res.cloudinary.com/practicaldev/image/fetch/s--l-iAIbQx--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n72u7msdmflruzlsh3jc.png',
-        usuario:{
-            userName:'Saurabh Rai',
-            userAvatar: "/src/user1.webp",
-        },
-        fecha:'09-20-2023',
-        titulo:"React sees a dip in downloads on npm. What's going on?",
-        tags:['webdev','discuss','javascript','react'],
-        desciption:"React is one of the most popular JavaScript libraries in the world, but it saw a dip in downloads this week. Could be a number of factors. Also, it might be something going on with npm.js as well. Who knows 🤯🤯??",
-        reacciones:{
-            love:9,
-            amazing:7,
-            mind_blowing:5,
-            thanks:6,
-            fire:6,
-        },
-        num_comentarios:17,
-        readTime:'1 min',
-    },
-    post3:{
-        url:'',
-        usuario:{
-            userName:'Michael Doyle',
-            userAvatar: "/src/user3.webp",
-        },
-        fecha:'09-20-2023',
-        titulo:'To `useMemo` or Not to `useMemo`: A React Developer’s Dilemma',
-        tags:['javascript', 'performance','webdev','react'],
-        desciption:"",
-        reacciones:{
-            love:9,
-            amazing:0,
-            mind_blowing:0,
-            thanks:1,
-            fire:0,
-        },
-        num_comentarios:2,
-        readTime:'2 min',
-    },
-    post4:{
-        url:'https://res.cloudinary.com/practicaldev/image/fetch/s--_WOoxZaj--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qpvmbeqyn1snq5bym87w.png',
-        usuario:{
-            userName:'Pierre Chollet',
-            userAvatar: "/src/user4.webp",
-        },
-        fecha:'09-20-2023',
-        titulo:'Don’t block your users! Why you should adopt event-driven architecture',
-        tags:['javascript','api', 'webdev', 'typescript'],
-        desciption:"Building event-driven applications offers a flexible, but markedly different approach to building applications. Let’s take a look at how an event-driven architecture can benefit your users, developers, and your application code.",
-        reacciones:{
-            love:2,
-            amazing:2,
-            mind_blowing:0,
-            thanks:1,
-            fire:1,
-        },
-        num_comentarios:0,
-        readTime:'5 min',
-    },
-    post4:{
-        url:'https://res.cloudinary.com/practicaldev/image/fetch/s--EEe2Ua-X--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b9yl5x75va955clvbdsj.png',
-        usuario:{
-            userName:'Pierre Chollet',
-            userAvatar: "/src/user2.webp",
-        },
-        fecha:'09-20-2023',
-        titulo:'3 State Switches are not tough - Ultimate guide to CSS Switches using CSS only',
-        tags:['html','css','webdev','ui'],
-        desciption:"Hi there, when it comes to switches most people look for modern libraries but building core is very important. Creating switches are very easy. Today I will be sharing the guide to create CSS switches.",
-        reacciones:{
-            love:1,
-            amazing:1,
-            mind_blowing:1,
-            thanks:1,
-            fire:1,
-        },
-        num_comentarios:1,
-        readTime:'5 min',
-    },
-    post5:{
-        url:'https://res.cloudinary.com/practicaldev/image/fetch/s--VvNRix21--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qcu9r421gz8zzlrx4wq9.png',
-        usuario:{
-            userName:'Pierre Chollet',
-            userAvatar: "/src/user2.webp",
-        },
-        fecha:'08-05-2023',
-        titulo:'Comparison of Node.js libraries to colorize text in terminal',
-        tags:['webdev','javascript','node','programming'],
-        desciption:"In the Node.js world are huge number of different libraries for coloring text in the terminal. Every library write that 'I am the best', 'I am fastest', 'I'm smallest', etc.",
-        reacciones:{
-            love:0,
-            amazing:0,
-            mind_blowing:0,
-            thanks:0,
-            fire:0,
-        },
-        num_comentarios:0,
-        readTime:'10 min',
-    },
-}
+// const button_delete = document.createElement('#delete__button')
 
-const button_delete = document.createElement('#delete__button')
+// button_delete.addEventListener('click', (event) => {
+//     const elementToRemove = event.target.dataset.avatarID
+//     // console.log(event)
+//     listAvatar.splice(Number(elementToRemove), 1)
+//     // console.log(listAvatar)
+//     cleanList()
+//     // form()
+//     renderList(listAvatar)
+// })
 
-button_delete.addEventListener('click', (event) => {
-    const elementToRemove = event.target.dataset.avatarID
-    // console.log(event)
-    listAvatar.splice(Number(elementToRemove), 1)
-    // console.log(listAvatar)
-    cleanList()
-    // form()
-    renderList(listAvatar)
-})
+// const search =document.querySelector('#search__button')
 
-const search =document.querySelector('#search__button')
+// search.addEventListener('click',()=>{
+//     const searching = document.querySelector('#search__bar')
 
-search.addEventListener('click',()=>{
-    const searching = document.querySelector('#search__bar')
+//     console.log(searching)
+// })
 
-    console.log(searching)
-})
+// const search_result =
 
-// const search_result = 
+console.log();
+
+const URL_FIREBASE =
+  "https://devs-imparables-default-rtdb.firebaseio.com/.json";
+
+const renderPost = (post, index) => {
+  const sectionAddCard = document.querySelector("#section_cards");
+
+  const post_container = document.createElement("div");
+  const post_image = document.createElement("img");
+  const body = document.createElement("div");
+  const autor = document.createElement("div");
+  const autor_image = document.createElement("img");
+  const autor_info = document.createElement("div");
+  const autor_label = document.createElement("span");
+  const date_label = document.createElement("span");
+  const ancor_title = document.createElement("a");
+  const title = document.createElement("h3");
+  const span_mobile = document.createElement("span");
+  const tags_list = document.createElement("ul");
+  const info_container = document.createElement("div");
+  const detail_container = document.createElement("div");
+  const reaction_link = document.createElement("a");
+  const reactions_pic = document.createElement("div");
+  const heart_img = document.createElement("img");
+  const reaction_pic2 = document.createElement("div");
+  const hands_img = document.createElement("img");
+  const reaction_label = document.createElement("span");
+  const comments_link = document.createElement("a");
+  const img_comments = document.createElement("img");
+  const number_coms = document.createElement("span");
+  const label_coms = document.createElement("span");
+  const void_container = document.createElement("div");
+  const time_container = document.createElement("div");
+  const min_read = document.createElement("span");
+  const img_bookmark = document.createElement("img");
+  const delete_container = document.createElement("div");
+  const delete_button = document.createElement("button");
+  const title_text = `${post.titulo}`;
+  const imagensrc = post.url;
+
+  sectionAddCard.className = "cards__container";
+  post_container.className = "card mt-2";
+
+  post_image.className = "card-img-top";
+  post_image.setAttribute("id", "post_image");
+  post_image.setAttribute("src", imagensrc);
+
+  body.setAttribute("id", "body");
+  body.className = "card-body";
+
+  autor.setAttribute("id", "autor");
+  autor.className = "autor__container d-flex d-row align-items-center ms-1";
+
+  autor_image.setAttribute("id", "autor_image");
+  autor_image.setAttribute("src", "/src/autor-post-1.webp");
+  autor_image.className = "autor__pic";
+
+  autor_info.setAttribute("id", "autor_info");
+  autor_info.className = "autor-info__container d-flex flex-column ms-2";
+
+  autor_label.className = "autor__label";
+  autor_label.textContent = "Chantastic";
+  date_label.className = "date__label";
+  date_label.textContent = "Jul 25";
+
+  ancor_title.setAttribute("id", "title_post");
+  ancor_title.className = "card-title__link link-underline-light text-dark";
+  ancor_title.setAttribute("href", "./view_post/post.html");
+
+  title.className =
+    "card-title card-title-lg mt-3 ms-md-5 ms-lg-5 d-none d-md-block d-lg-block";
+  title.textContent = title_text;
+
+  span_mobile.className =
+    "card-title card-title-sm mt-3 ms-md-5 ms-lg-5 d-sm-block d-md-none d-lg-none";
+  span_mobile.textContent = title_text;
+
+  tags_list.setAttribute("id", "tags_list");
+  tags_list.className =
+    "tags__container list-unstyled d-flex flex-wrap ms-md-5 ms-lg-5";
+
+  const tag1_text = `#${post.tags[0]}`;
+  if (tag1_text != "#undefined") {
+    const tag1 = document.createElement("li");
+    tag1.textContent = tag1_text;
+    tags_list.appendChild(tag1);
+  }
+  const tag2_text = `#${post.tags[1]}`;
+  if (tag2_text != "#undefined") {
+    const tag2 = document.createElement("li");
+    tag2.textContent = tag2_text;
+    tags_list.appendChild(tag2);
+  }
+  const tag3_text = `#${post.tags[2]}`;
+  if (tag3_text != "#undefined") {
+    const tag3 = document.createElement("li");
+    tag3.textContent = tag3_text;
+    tags_list.appendChild(tag3);
+  }
+
+  const tag4_text = `#${post.tags[3]}`;
+  if (tag4_text != "#undefined") {
+    const tag4 = document.createElement("li");
+    tag4.textContent = tag4_text;
+    tags_list.appendChild(tag4);
+  }
+
+  info_container.setAttribute("id", "info_container");
+  info_container.className =
+    "info__container d-flex justify-content-between align-items-center ms-md-5 ms-lg-5";
+
+  detail_container.setAttribute("id", "detail_container");
+  detail_container.className = "detail__container d-flex align-items-center";
+  reaction_link.setAttribute("id", "reaction_link");
+  reaction_link.className =
+    "reactions__link link-underline-light d-flex align-items-center";
+  reactions_pic.setAttribute("id", "reactions_pic");
+  reactions_pic.className = "reactions-pic__container z-3";
+  heart_img.setAttribute("id", "heart_img");
+  heart_img.setAttribute("src", "/src/heart.svg");
+  heart_img.className = "reaction__pic";
+  reaction_pic2.setAttribute("id", "reactions_pic2");
+  reaction_pic2.className =
+    "reactions-pic__container reaction__pic--back position-relative";
+  hands_img.setAttribute("id", "hands_img");
+  hands_img.setAttribute("src", "/src/raised-hands.svg");
+  hands_img.className = "reaction__pic";
+  reaction_label.setAttribute("id", "reaction_label");
+  reaction_label.className =
+    "reactions__label text-primary-emphasis d-none d-md-inline d-lg-inline";
+  reaction_label.textContent = "5 Reactions";
+  comments_link.setAttribute("id", "comments_link");
+  comments_link.className =
+    "comments__link link-underline-light d-flex align-items-center ms-4";
+  img_comments.setAttribute("id", "img_comments");
+  img_comments.setAttribute("src", "/src/comments.svg");
+  img_comments.className = "comments__pic";
+  number_coms.setAttribute("id", "number_coms");
+  number_coms.className = "number-comments__label text-primary-emphasis";
+  number_coms.textContent = "2";
+  label_coms.setAttribute("id", "label_coms");
+  label_coms.className =
+    "comments__label text-primary-emphasis d-none d-md-inline d-lg-inline";
+  label_coms.textContent = "Comments";
+  void_container.setAttribute("id", "void_container");
+  void_container.className = "void__container";
+  time_container.setAttribute("id", "time_container");
+  time_container.className = "time__container";
+  min_read.setAttribute("id", "min_read");
+  min_read.className = "min-read__container me-2";
+  min_read.textContent = "2 min read";
+  img_bookmark.setAttribute("id", "img_bookmark");
+  img_bookmark.setAttribute("src", "/src/bookmark.svg");
+  img_bookmark.className = "bookmark__pic";
+  delete_container.setAttribute("id","delete_container");
+  delete_container.className = "deleteButton__container";
+  delete_button.setAttribute("id","delete__button");
+  delete_button.setAttribute("type","button");
+  delete_button.className = "btn btn-outline-danger";
+  delete_button.textContent = "DeletePost";
+
+
+  sectionAddCard.appendChild(post_container);
+  post_container.appendChild(post_image);
+  post_container.appendChild(body);
+  body.appendChild(autor);
+  autor.appendChild(autor_image);
+  autor.appendChild(autor_info);
+  autor_info.appendChild(autor_label);
+  autor_info.appendChild(date_label);
+  body.appendChild(ancor_title);
+  ancor_title.appendChild(title);
+  ancor_title.appendChild(span_mobile);
+  body.appendChild(tags_list);
+  body.appendChild(info_container);
+  info_container.appendChild(detail_container);
+  detail_container.appendChild(reaction_link);
+  reaction_link.appendChild(reactions_pic);
+  reactions_pic.appendChild(heart_img);
+  reaction_link.appendChild(reaction_pic2);
+  reaction_pic2.appendChild(hands_img);
+  reaction_link.appendChild(reaction_label);
+  detail_container.appendChild(comments_link);
+  comments_link.appendChild(img_comments);
+  comments_link.appendChild(number_coms);
+  comments_link.appendChild(label_coms);
+  info_container.appendChild(void_container);
+  void_container.appendChild(time_container);
+  time_container.appendChild(min_read);
+  time_container.appendChild(img_bookmark);
+  body.appendChild(delete_container);
+  delete_container.appendChild(delete_button);
+};
+
+const parserResponseFireBase = (response) => {
+  const parsedResponse = [];
+  for (const key in response) {
+    const element = {
+      id: key,
+      titulo: response[key].titulo,
+      tags: response[key].tags,
+      description: response[key].description,
+      url: response[key].url,
+    };
+    parsedResponse.push(element);
+  }
+  return parsedResponse;
+};
+
+const renderList = (listToRender) => {
+  console.log(listToRender);
+  listToRender.forEach((post, index) => {
+    renderPost(post, index);
+  });
+};
+
+const getInfoApi = async () => {
+  try {
+    const response = await fetch(URL_FIREBASE, {
+      method: "GET",
+    });
+    const parsed = await response.json();
+    console.log(parsed);
+    const array_post = parserResponseFireBase(parsed);
+    postList = array_post
+    renderList(array_post);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+let postList = []
+
+getInfoApi();
+
+const searchButton = document.querySelector("#search__button")
+
+searchButton.addEventListener('click', ()=> {
+  const searchInput = document.querySelector("#data-search")
+  const searchValue = searchInput.value
+
+  const filterList = []
+
+  for( let index = 0; index<postList.length; index++){
+      
+    if (postList[index].titulo.includes(searchValue) ){
+      filterList.push(postList[index])
+    } 
+
+  }
+  console.log(filterList)
+  // renderPost(filterList)
+
+  // console.log(filterList)
+  })
 
 
 
-console.log()
+
+
+
