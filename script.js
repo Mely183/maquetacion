@@ -13,10 +13,13 @@ console.log();
 const URL_FIREBASE =
   "https://devs-imparables-default-rtdb.firebaseio.com/.json";
 
+
+
 const URL_ViewPost ="./view_post/post.html"
 const sectionAddCard = document.querySelector("#section_cards");
 
 const renderPost = (post, index) => {
+  
 
   const post_container = document.createElement("div");
   const post_image = document.createElement("img");
@@ -206,8 +209,8 @@ const renderPost = (post, index) => {
 
   delete_button.addEventListener("click", (event) => {
     DeletePost(post.id);
-    //cleanList();
-    //renderList(post);
+    cleanList();
+    renderList(post);
   })
 
 
@@ -230,8 +233,7 @@ const DeletePost = async (id) => {
 }
 
 const cleanList = () => {
-  console.log(sectionAddCard)
-  while(sectionAddCard.firstChild && sectionAddCard){
+  while(sectionAddCard.firstChild){
       sectionAddCard.removeChild(sectionAddCard.firstChild)
   }
 };
