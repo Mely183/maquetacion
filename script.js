@@ -1,14 +1,4 @@
-// const search =document.querySelector('#search__button')
 
-// search.addEventListener('click',()=>{
-//     const searching = document.querySelector('#search__bar')
-
-//     console.log(searching)
-// })
-
-// const search_result =
-
-console.log();
 
 const URL_FIREBASE =
   "https://devs-imparables-default-rtdb.firebaseio.com/.json";
@@ -282,7 +272,7 @@ getInfoApi();
 
 const searchButton = document.querySelector("#search__button")
 
-searchButton.addEventListener('click', ()=> {
+searchButton.addEventListener('click', (event)=> {
   const searchInput = document.querySelector("#data-search")
   const searchValue = searchInput.value.toLowerCase()
 
@@ -310,7 +300,25 @@ searchButton.addEventListener('click', ()=> {
   
 
 
+// button_delete.addEventListener('click', (event) => {
+//     const elementToRemove = event.target.dataset.avatarID
+//     // console.log(event)
+//     renderList.splice(Number(elementToRemove), 1)
+//     // console.log(listAvatar)
+//     cleanList()
+//     // form()
+//     getInfoApi()
+// })
 
+// const search =document.querySelector('#search__button')
 
+// search.addEventListener('click',()=>{
+//     const searching = document.querySelector('#search__bar')
 
+//     console.log(searching)
+// })
+
+// const search_result =
+
+// console.log();
 
