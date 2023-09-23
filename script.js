@@ -1,15 +1,3 @@
-// const button_delete = document.createElement('#delete__button')
-
-// button_delete.addEventListener('click', (event) => {
-//     const elementToRemove = event.target.dataset.avatarID
-//     // console.log(event)
-//     listAvatar.splice(Number(elementToRemove), 1)
-//     // console.log(listAvatar)
-//     cleanList()
-//     // form()
-//     renderList(listAvatar)
-// })
-
 // const search =document.querySelector('#search__button')
 
 // search.addEventListener('click',()=>{
@@ -26,9 +14,9 @@ const URL_FIREBASE =
   "https://devs-imparables-default-rtdb.firebaseio.com/.json";
 
 const URL_ViewPost ="./view_post/post.html"
+const sectionAddCard = document.querySelector("#section_cards");
 
 const renderPost = (post, index) => {
-  const sectionAddCard = document.querySelector("#section_cards");
 
   const post_container = document.createElement("div");
   const post_image = document.createElement("img");
@@ -215,6 +203,37 @@ const renderPost = (post, index) => {
   time_container.appendChild(img_bookmark);
   body.appendChild(delete_container);
   delete_container.appendChild(delete_button);
+
+  delete_button.addEventListener("click", (event) => {
+    DeletePost(post.id);
+    //cleanList();
+    //renderList(post);
+  })
+
+
+};
+
+const URL_DB = "https://devs-imparables-default-rtdb.firebaseio.com/";
+
+const DeletePost = async (id) => {
+  console.log(id);
+  const url = URL_DB + id + '.json'
+
+  const deleted = await fetch(url, {
+      method: 'DELETE'
+  })
+
+  if (deleted.status === 200) {
+      getInfoApi()
+  }
+
+}
+
+const cleanList = () => {
+  console.log(sectionAddCard)
+  while(sectionAddCard.firstChild && sectionAddCard){
+      sectionAddCard.removeChild(sectionAddCard.firstChild)
+  }
 };
 
 const parserResponseFireBase = (response) => {
@@ -248,6 +267,7 @@ const getInfoApi = async () => {
     console.log(parsed);
     const array_post = parserResponseFireBase(parsed);
     postList = array_post
+    cleanList();
     renderList(array_post);
   } catch (error) {
     console.error(error);
@@ -262,22 +282,30 @@ const searchButton = document.querySelector("#search__button")
 
 searchButton.addEventListener('click', ()=> {
   const searchInput = document.querySelector("#data-search")
-  const searchValue = searchInput.value
+  const searchValue = searchInput.value.toLowerCase()
 
   const filterList = []
 
   for( let index = 0; index<postList.length; index++){
       
-    if (postList[index].titulo.includes(searchValue) ){
+    const search_case = postList[index].titulo.toLowerCase()
+
+    if (search_case.includes(searchValue) ){
       filterList.push(postList[index])
+      filterList.forEach(element => {
+        console.log(element.id)
+        renderList(filterList);
+        window.location.href = 'http://127.0.0.1:5500/view_post/post.html?id=' + element.id;
+      });
+      
+      
     } 
 
   }
   console.log(filterList)
-  // renderPost(filterList)
-
-  // console.log(filterList)
   })
+
+  
 
 
 
