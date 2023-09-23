@@ -80,7 +80,7 @@ const postInfo = {
  * Verifica si el campo de título no está vacío y muestra una alerta si lo está.
  * @param {Event} event - El evento click.
  */
-saveInfo.addEventListener('click', function () {
+saveInfo.addEventListener('click', async function () {
     const newTitle = postTitle.value.trim();
     const newImage = imageUrl.value.trim();
     const newDescription = description.value;
@@ -94,7 +94,13 @@ saveInfo.addEventListener('click', function () {
         postInfo.description = newDescription;
         postInfo.tags = selectedTags; 
         console.log(newTitle);
-        postSave();
+        await postSave();
+        
+        try {
+            window.location.href = "../index.html";
+        } catch (error) {
+            console.error("Error al guardar la información:", error);
+        }
     }
 });
 
@@ -159,3 +165,12 @@ inputDescription.addEventListener("click", function() {
       In addition to images for the post's content, you can also drag and drop a cover image.</p>
     `;
   });
+
+//Boton de cancelar
+
+const cancelBtn = document.getElementById("cancelBtn");
+
+cancelBtn.addEventListener("click", () => {
+    window.location.href = "../index.html";
+});
+
