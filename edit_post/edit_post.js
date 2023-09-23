@@ -87,7 +87,7 @@ const updatePost = async() => {
         body: JSON.stringify(post)
     });
     if(response.status === 200){
-      window.location.href = 'http://127.0.0.1:5500/view_post/post.html?id=' + ID_POST 
+      window.location.href = '../view_post/post.html?id=' + ID_POST 
     }
 };
 

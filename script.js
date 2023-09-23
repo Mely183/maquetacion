@@ -287,7 +287,7 @@ searchButton.addEventListener('click', (event)=> {
       filterList.forEach(element => {
         console.log(element.id)
         renderList(filterList);
-        window.location.href = 'http://127.0.0.1:5500/view_post/post.html?id=' + element.id;
+        window.location.href = '../view_post/post.html?id=' + element.id;
       });
       
       
