@@ -255,6 +255,12 @@ searchButton.addEventListener('click', (event)=> {
   console.log(filterList)
   })
 
+// const createPostButton = document.querySelector('#create_post__button')
+
+// createPostButton.addEventListener('click',(event)=> {
+//   window.open('http://127.0.0.1:5500/create_post/create_post.html')
+// })
+
 // const button_delete = document.createElement('#delete__button')
 
 // button_delete.addEventListener('click', (event) => {
