@@ -69,14 +69,14 @@ buttonEdit.addEventListener('click', (event) => {
     // para cambiar de vista
     //window.location.href = 'http://127.0.0.1:5500/17-Crud/update/'
     //window.location.href = 'http://127.0.0.1:5500/17-Crud/update/?id=' + elementToEdit + '&test=hola';
-    window.location.href = 'http://127.0.0.1:5500/edit_post/?id=' + elementToEdit
+    window.location.href = '../edit_post/edit_post.html?id=' + ID_POST
     //window.location.pathname = '17-CRUD/update/'
 })
 
 // Traer informacion de ese hash
 const getInfoById = async () => {
-    //const url = URL_API + ID_POST + '.json'
-    const url = URL_API + '-NeugAeo2dr-wmPly7s0' + '.json'
+    const url = URL_API + ID_POST + '.json'
+    //const url = URL_API + '-NeugAeo2dr-wmPly7s0' + '.json'
     console.log(url);
     const info = await fetch(url)
     console.log(info);

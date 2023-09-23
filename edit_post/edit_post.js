@@ -1,4 +1,4 @@
-const URL_API ="https://devs-imparables-default-rtdb.firebaseio.com/-NeuhfxdY4P7eeRd1cfd"
+const URL_API ="https://devs-imparables-default-rtdb.firebaseio.com/"
 const search = window.location.search;
 console.log(search)
 const url = new URLSearchParams(search);
@@ -81,13 +81,13 @@ const updatePost = async() => {
         description: input_post.value,
     };
 
-    const url = URL_API + '.json'; // ID_POST +
+    const url = URL_API + ID_POST + '.json';  
     const response = await fetch(url, {
         method: 'PATCH',
         body: JSON.stringify(post)
     });
     if(response.status === 200){
-      window.location.href = 'http://127.0.0.1:5500/view_post/post.html'
+      window.location.href = 'http://127.0.0.1:5500/view_post/post.html?id=' + ID_POST 
     }
 };
 
@@ -98,7 +98,7 @@ buttonSave.addEventListener('click', () => {
 
 // FUNCION PARA OBTENER LA INFORMACION DEL POST DESDE QUE SE MUESTRA PANTALLA EDIT POST
 const getPostByID = async() => {
-    const url = URL_API +'.json';  //ID_POST + 
+    const url = URL_API + ID_POST + '.json';  
     const info = await fetch(url);
     const parsed = await info.json();
     console.log(parsed)

@@ -25,6 +25,8 @@ console.log();
 const URL_FIREBASE =
   "https://devs-imparables-default-rtdb.firebaseio.com/.json";
 
+const URL_ViewPost ="./view_post/post.html"
+
 const renderPost = (post, index) => {
   const sectionAddCard = document.querySelector("#section_cards");
 
@@ -88,7 +90,7 @@ const renderPost = (post, index) => {
 
   ancor_title.setAttribute("id", "title_post");
   ancor_title.className = "card-title__link link-underline-light text-dark";
-  ancor_title.setAttribute("href", "./view_post/post.html");
+  ancor_title.setAttribute("href", URL_ViewPost + "?id=" + post.id);
 
   title.className =
     "card-title card-title-lg mt-3 ms-md-5 ms-lg-5 d-none d-md-block d-lg-block";
