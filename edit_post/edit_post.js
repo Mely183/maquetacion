@@ -1,5 +1,6 @@
 const URL_API ="https://devs-imparables-default-rtdb.firebaseio.com/"
 const search = window.location.search;
+const port = 3000
 console.log(search)
 const url = new URLSearchParams(search);
 console.log(url)
@@ -87,7 +88,7 @@ const updatePost = async() => {
         body: JSON.stringify(post)
     });
     if(response.status === 200){
-      window.location.href = 'http://127.0.0.1:5500/view_post/post.html?id=' + ID_POST 
+      window.location.href = `http://127.0.0.1:${port}/view_post/post.html?id=${ID_POST}`
     }
 };
 
