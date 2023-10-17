@@ -1,6 +1,7 @@
 
 const port = 3000
-const URL_FIREBASE = "https://devs-imparables-default-rtdb.firebaseio.com/.json";
+
+const URL_DB = "https://devs-imparables-default-rtdb.firebaseio.com/";
 
 const URL_ViewPost ="./view_post/post.html"
 const sectionAddCard = document.querySelector("#section_cards");
@@ -202,7 +203,6 @@ const renderPost = (post, index) => {
 
 };
 
-const URL_DB = "https://devs-imparables-default-rtdb.firebaseio.com/";
 
 const DeletePost = async (id) => {
   console.log(id);
@@ -248,7 +248,7 @@ const renderList = (listToRender) => {
 
 const getInfoApi = async () => {
   try {
-    const response = await fetch(URL_FIREBASE, {
+    const response = await fetch(URL_DB + '.json', {
       method: "GET",
     });
     const parsed = await response.json();

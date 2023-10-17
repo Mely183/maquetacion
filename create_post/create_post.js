@@ -4,6 +4,7 @@ const description = document.getElementById('postDescription');
 const saveInfo = document.getElementById('saveInfo');
 const emptyTitleAlert = document.getElementById('emptyTitleAlert');
 
+const URL_FIREBASE='https://devs-imparables-default-rtdb.firebaseio.com/.json'
 
 const selectElement = document.getElementById('tags'); 
 const selectedTagsContainer = document.getElementById('selectedTagsContainer'); 
@@ -103,8 +104,6 @@ saveInfo.addEventListener('click', async function () {
         }
     }
 });
-
-const URL_FIREBASE='https://devs-imparables-default-rtdb.firebaseio.com/.json'
 
 const postSave = async() =>{
     const response = await fetch(URL_FIREBASE, {

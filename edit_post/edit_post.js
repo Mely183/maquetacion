@@ -1,6 +1,7 @@
 const URL_API ="https://devs-imparables-default-rtdb.firebaseio.com/"
-const search = window.location.search;
 const port = 3000
+
+const search = window.location.search;
 console.log(search)
 const url = new URLSearchParams(search);
 console.log(url)
