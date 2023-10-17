@@ -5,7 +5,7 @@ mongoose.set('strictQuery', false)
 
 module.exports = {
     connect: () => {
-        console.log(URI)
+        //console.log(URI)
         try {
             mongoose.connect(URI, {
                 useNewUrlParser: true,
@@ -14,7 +14,7 @@ module.exports = {
             console.log('Connected to database')
         } catch (error) {
             console.log('Error connecting to database')
-                    console.log(error)
+            console.log(error)
         }
     },
     disconnect: (done) => {
