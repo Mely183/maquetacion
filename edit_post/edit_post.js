@@ -1,4 +1,4 @@
-const URL_API ="https://devs-imparables-default-rtdb.firebaseio.com/"
+const URL_DB ="https://devs-imparables-default-rtdb.firebaseio.com/"
 const port = 3000
 
 const search = window.location.search;
@@ -83,7 +83,7 @@ const updatePost = async() => {
         description: input_post.value,
     };
 
-    const url = URL_API + ID_POST + '.json';  
+    const url = URL_DB + ID_POST + '.json';  
     const response = await fetch(url, {
         method: 'PATCH',
         body: JSON.stringify(post)
@@ -100,7 +100,7 @@ buttonSave.addEventListener('click', () => {
 
 // FUNCION PARA OBTENER LA INFORMACION DEL POST DESDE QUE SE MUESTRA PANTALLA EDIT POST
 const getPostByID = async() => {
-    const url = URL_API + ID_POST + '.json';  
+    const url = URL_DB + ID_POST + '.json';  
     const info = await fetch(url);
     const parsed = await info.json();
     console.log(parsed)

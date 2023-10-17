@@ -1,4 +1,4 @@
-const URL_API = 'https://devs-imparables-default-rtdb.firebaseio.com/';
+const URL_DB = 'https://devs-imparables-default-rtdb.firebaseio.com/';
 const port = 3000
 
 const search = window.location.search
@@ -22,7 +22,7 @@ buttonEdit.addEventListener('click', (event) => {
 
 // Traer informacion de ese hash
 const getInfoById = async () => {
-    const url = URL_API + ID_POST + '.json'
+    const url = URL_DB + ID_POST + '.json'
 
     console.log(url);
     const info = await fetch(url)
