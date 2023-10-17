@@ -4,24 +4,24 @@ const app = express()
 const port = 3000
 
 /** Directories */
-// const routes = require('./routes/index')
+const routes = require('./routes/index')
 // const docs = require('./doc/index')
-const swaggerJSDoc = require('swagger-jsdoc')
-const swaggerUI = require('swagger-ui-express')
+//const swaggerJSDoc = require('swagger-jsdoc')
+//const swaggerUI = require('swagger-ui-express')
 // const swaggerSpec = swaggerJSDoc(docs)
 const db = require('./lib/db')
 // const errorHandler = require('./middlewares/errorHandler')
 
 /** Middlewares */
 app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 
 db.connect()
 
 // app.use('/api-doc', swaggerUI.serve, swaggerUI.setup(swaggerSpec))
 
 /** Routes */
-// app.use(routes)
+app.use(routes)
 // app.use(errorHandler.errorHandler)
 
 
