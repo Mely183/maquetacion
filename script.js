@@ -1,5 +1,8 @@
-
+// const postsControllers = "./backend/controlles/postControllers.js"
+// require('dotenv').config()
 const port = 3000
+
+// const URL_DB = URI
 
 const URL_DB = "https://devs-imparables-default-rtdb.firebaseio.com/";
 

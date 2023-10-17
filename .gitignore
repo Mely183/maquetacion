@@ -3,3 +3,5 @@ node_modules/
 
 # Excluir archivos .env
 .env
+package-lock.json
+*.css.map
