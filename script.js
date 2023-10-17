@@ -1,16 +1,12 @@
 
-
-const URL_FIREBASE =
-  "https://devs-imparables-default-rtdb.firebaseio.com/.json";
-
-
+const port = 3000
+const URL_FIREBASE = "https://devs-imparables-default-rtdb.firebaseio.com/.json";
 
 const URL_ViewPost ="./view_post/post.html"
 const sectionAddCard = document.querySelector("#section_cards");
 
 const renderPost = (post, index) => {
   
-
   const post_container = document.createElement("div");
   const post_image = document.createElement("img");
   const body = document.createElement("div");
@@ -287,38 +283,9 @@ searchButton.addEventListener('click', (event)=> {
       filterList.forEach(element => {
         console.log(element.id)
         renderList(filterList);
-        window.location.href = 'http://127.0.0.1:5500/view_post/post.html?id=' + element.id;
+        window.location.href = `http://127.0.0.1:${port}/view_post/post.html?id=${element.id}`;
       });
-      
-      
     } 
-
   }
   console.log(filterList)
   })
-
-  
-
-
-// button_delete.addEventListener('click', (event) => {
-//     const elementToRemove = event.target.dataset.avatarID
-//     // console.log(event)
-//     renderList.splice(Number(elementToRemove), 1)
-//     // console.log(listAvatar)
-//     cleanList()
-//     // form()
-//     getInfoApi()
-// })
-
-// const search =document.querySelector('#search__button')
-
-// search.addEventListener('click',()=>{
-//     const searching = document.querySelector('#search__bar')
-
-//     console.log(searching)
-// })
-
-// const search_result =
-
-// console.log();
-
