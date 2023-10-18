@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const router = express.Router()
-const cors = require('cors')
+const cors = require("cors")
 
 /** Directories */
 const routes = require('./routes/index')
@@ -15,6 +15,7 @@ const db = require('./lib/db')
 // const errorHandler = require('./middlewares/errorHandler')
 
 /** Middlewares */
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 

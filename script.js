@@ -1,6 +1,6 @@
-const port = 5500
+const port = 3000
 
-const URL_DB = 'http://localhost:5500/postsRoutes/posts/';
+const URL_DB = `http://localhost:${port}/`;
 
 
 const URL_ViewPost ="./view_post/post.html"
@@ -267,7 +267,7 @@ const renderList = (listToRender) => {
 
 const getInfoApi = async () => {
   try {
-    const response = await fetch(URL_DB, {
+    const response = await fetch(URL_DB + 'postsRoutes/posts', {
       method: "GET",
     })
     console.log(response)
