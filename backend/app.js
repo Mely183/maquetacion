@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const port = 5500
 const router = express.Router()
+const cors = require('cors')
 
 /** Directories */
 const routes = require('./routes/index')
@@ -16,6 +17,7 @@ const db = require('./lib/db')
 /** Middlewares */
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
 
 db.connect()
 

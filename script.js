@@ -1,7 +1,5 @@
 const port = 5500
 
-
-// const URL_DB = `http://localhost:${port}/postsRoutes/posts`;
 const URL_DB = 'http://localhost:5500/postsRoutes/posts/';
 
 
@@ -204,19 +202,19 @@ const renderPost = (post, index) => {
 };
 
 
-const DeletePost = async (id) => {
-  console.log(id);
-  const url = URL_DB + id
+// const DeletePost = async (id) => {
+//   console.log(id);
+//   const url = URL_DB + id
 
-  const deleted = await fetch(url, {
-      method: 'DELETE'
-  })
+//   const deleted = await fetch(url, {
+//       method: 'DELETE'
+//   })
 
-  if (deleted.status === 200) {
-      getInfoApi()
-  }
+//   if (deleted.status === 200) {
+//       getInfoApi()
+//   }
 
-}
+// }
 
 const cleanList = () => {
   while(sectionAddCard.firstChild){
@@ -265,29 +263,22 @@ const renderList = (listToRender) => {
 //   }
 // };
 
-// const getInfoApi = async () => {
-//   try {
-//     const response = await fetch(URL_FIREBASE, {
-//       method: "GET",
-//     });
-//     const parsed = await response.json();
-//     console.log(parsed);
-//     const array_post = parserResponseFireBase(parsed);
-//     postList = array_post
-//     cleanList();
-//     renderList(array_post);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+
 
 const getInfoApi = async () => {
   try {
-    const response = await fetch(URL_DB)
+    const response = await fetch('http://localhost:5500/postsRoutes/posts/', {
+      method: "GET",
+    })
     console.log(response)
 
-    const posts = await response.json()
-    console.log
+    if(response.status === 200){
+      const posts = await response.json()
+      console.log(posts)
+
+    } else if(response.status === 404){
+      console.log('Datos no encontrados')
+    }
 
   } catch (error) {
     console.log(error)
