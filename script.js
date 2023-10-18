@@ -198,19 +198,19 @@ const renderPost = (post, index) => {
   });
 };
 
-// const DeletePost = async (id) => {
-//   console.log(id);
-//   const url = URL_DB + id
+const DeletePost = async (id) => {
+  console.log(id);
+  const url = `${URL_DB}postsRoutes/posts${id}`
 
-//   const deleted = await fetch(url, {
-//       method: 'DELETE'
-//   })
+  const deleted = await fetch(url, {
+      method: 'DELETE'
+  })
 
-//   if (deleted.status === 200) {
-//       getInfoApi()
-//   }
+  if (deleted.status === 200) {
+      getInfoApi()
+  }
 
-// }
+}
 
 const cleanList = () => {
   while (sectionAddCard.firstChild) {
@@ -242,20 +242,18 @@ const renderList = (listToRender) => {
 
 const getInfoApi = async () => {
   try {
-    const response = await fetch(URL_DB + "postsRoutes/posts", {
+    const response = await fetch(`${URL_DB}postsRoutes/posts`, {
       method: "GET",
-    });
-    console.log(response);
-    if (response.status === 200) {
-      let postList = [];
-      const parsed_posts = await response.json();
-      const posts = parserResponse(parsed_posts["data"]);
-      console.log(parsed_posts["data"]);
-      postList = posts;
-      cleanList();
-      renderList(posts);
-    } else if (response.status === 404) {
-      console.log("Datos no encontrados");
+    })
+    console.log(response)
+
+    if(response.status == 200){
+      const posts = await response.json()
+
+      console.log(posts)
+
+    } else if(response.status == 404){
+      console.log('Datos no encontrados')
     }
   } catch (error) {
     console.error(error);

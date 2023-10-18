@@ -4,130 +4,17 @@ const router = express.Router();
 const postController = require('../controllers/postsControllers')
 //const auth = require('../middlewares/auth')
 
-
 /**
  * @swagger
- * /posts/getAll:
+ * /posts:
  *  get:
- *      summary: get all posts from db
+ *      summary: Get all posts form db
  *      tags:
  *          - posts
- *      description: endpoint to retrive post by id
+ *      description: Retrive all posts from database
  *      responses:
  *          200:
- *              description: post data in json and status message
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              data:
- *                                  type: object
- *                                  properties: 
- *                                      _id:
- *                                          type: string
- *                                          example: "9834jshd02ks72"
- *                                      titulo:
- *                                          type: string 
- *                                          example: "This is a title"
- *                                      description:
- *                                          type: string
- *                                          example: "This is a description"
- *                                      tags:
- *                                          type: string
- *                                          example: "tag1"
- *                              msg:
- *                                  type: string
- *                                  example: "success"
- *          404:
- *              description: post data not found
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              msg:
- *                                  type: string
- *                                  example: "post not found"
- */
-router.get('/posts', postController.getAll)
-
-/**
- * @swagger
- * /posts/{id}:
- *  get:
- *      summary: get post by id
- *      tags:
- *          - posts
- *      description: endpoint to retrive post by id
- *      responses:
- *          200:
- *              description: post data in json and status message
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              data:
- *                                  type: object
- *                                  properties: 
- *                                      _id:
- *                                          type: string
- *                                          example: "9834jshd02ks72"
- *                                      titulo:
- *                                          type: string 
- *                                          example: "This is a title"
- *                                      description:
- *                                          type: string
- *                                          example: "This is a description"
- *                                      tags:
- *                                          type: string
- *                                          example: "tag1"
- *                              msg:
- *                                  type: string
- *                                  example: "success"
- *          404:
- *              description: post data not found
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              msg:
- *                                  type: string
- *                                  example: "post not found"
- */
-router.get('/posts/:id', postController.getById)
-
-/**
- * @swagger
- * /posts/:
- *  post:
- *      summary: Create new product
- *      tags:
- *          - posts
- *      description: endpoint to create a post
- *      requestBody:
- *          content:
- *              application/json:
- *                  schema:
- *                      type: object
- *                      properties: 
- *                          _id:
- *                              type: string
- *                              example: "9834jshd02ks72"
- *                          titulo:
- *                              type: string 
- *                              example: "This is a title"
- *                          description:
- *                              type: string
- *                              example: "This is a description"
- *                          tags:
- *                              type: string
- *                              example: "tag1"
- *      responses:
- *          201:
- *              description: return a message and data product
+ *              description: return a message and all product data
  *              content:
  *                  application/json:
  *                      schema:
@@ -135,111 +22,162 @@ router.get('/posts/:id', postController.getById)
  *                          properties:
  *                              msg: 
  *                                  type: string
- *                                  example: Product created
+ *                                  example: User found
  *                              data:
- *                                  type: object
- *                                  properties: 
- *                                      _id:
- *                                          type: string
- *                                          example: "9834jshd02ks72"
- *                                      titulo:
- *                                          type: string 
- *                                          example: "This is a title"
- *                                      description:
- *                                          type: string
- *                                          example: "This is a description"
- *                                      tags:
- *                                          type: string
- *                                          example: "tag1"  
+ *                                  $ref: '#/doc/components/schemas/post'
+ *      
+ */
+router.get('/posts', postController.getAll)
+
+/**
+ * @swagger
+ * /posts/id:
+ *  get:
+ *      summary: Get post by id
+ *      tags:
+ *          - posts
+ *      description: Retrive post by id 
+ *      responses:
+ *          200:
+ *              description: return a message and all post data
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              msg:
+ *                                  type: string
+ *                                  example: Post found
+ *                              data:
+ *                                  $ref: '#/doc/components/schemas/post'
+ *          404:
+ *              description: return message
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              msg:
+ *                                  type: string
+ *                                  example: Post not found
+ */
+router.get('/posts/:id', postController.getById)
+
+/**
+ * @swagger
+ * /posts:
+ *  post:
+ *      summary: Create new post
+ *      tags:
+ *          - posts
+ *      description: endpoint to create a post
+ *      requestBody:
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/doc/components/schemas/post'
+ *      responses:
+ *          201:
+ *              description: return a message and data post
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              msg: 
+ *                                  type: string
+ *                                  example: Post created
+ *                              data:
+ *                                  $ref: '#/doc/components/schemas/post'
+ * 
  */
 router.post('/posts', postController.post)
 
 /**
  * @swagger
- * /posts/{id}:
+ * /posts/id:
  *  delete:
- *      summary: delete post by id
+ *      summary: delete post
  *      tags:
  *          - posts
- *      description: endpoint to delete post by id
+ *      description: endpoint to delete a post
+ *      requestBody:
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/post'
+ *                      properties:
+ *                          _id:
+ *                              type: string
+ *                              example: 6524cacdad03e6f697632ae0
  *      responses:
- *          200:
- *              description: post data in json and status message
+ *          201:
+ *              description: return a message
  *              content:
  *                  application/json:
  *                      schema:
- *                          type: object
+ *                          $ref: '#/components/schemas/user'
  *                          properties:
- *                              msg:
+ *                              msg: 
  *                                  type: string
- *                                  example: "success"
- *          401:
- *              description: unauthorized user
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              msg:
- *                                  type: string
- *                                  example: "User not authorized"
+ *                                  example: Post deleted
  *          404:
- *              description: post data not found
+ *              description: not found
  *              content:
  *                  application/json:
  *                      schema:
- *                          type: object
+ *                          $ref: '#/components/schemas/post'
  *                          properties:
  *                              msg:
  *                                  type: string
- *                                  example: "post not found"
+ *                                  example: post db not found
+ *                              error:
+ *                                  type: string
+ *                                  example: message error   
  */
 router.delete('/posts/:id', postController.delete)
 //router.delete('/posts/:id', auth.authToken, postController.delete)
 
 /**
  * @swagger
- * /posts/{id}:
+ * /posts/id:
  *  put:
- *      summary: update post data by id
- *      tags: 
+ *      summary: Update post
+ *      tags:
  *          - posts
- *      description: endpoint to update post data
+ *      description: endpoint to update a post
+ *      requestBody:
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/post'
  *      responses:
- *          200:
- *              description: post data in json and status message
+ *          201:
+ *              description: return a message and data post
  *              content:
  *                  application/json:
  *                      schema:
- *                          type: object
+ *                          $ref: '#/components/schemas/post'
  *                          properties:
- *                              msg:
+ *                              msg: 
  *                                  type: string
- *                                  example: "success"
- *          401:
- *              description: unauthorized user
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                              msg:
- *                                  type: string
- *                                  example: "User not authorized"
+ *                                  example: Post created
+ *                              data:
+ *                                  $ref: '#/components/schemas/post'
  *          404:
- *              description: post data not found
+ *              description: not found
  *              content:
  *                  application/json:
  *                      schema:
- *                          type: object
+ *                          $ref: '#/components/schemas/post'
  *                          properties:
  *                              msg:
  *                                  type: string
- *                                  example: "post not found"
- *      
+ *                                  example: post db not found
+ *                              error:
+ *                                  type: string
+ *                                  example: message error   
  */
 router.put('/posts/:id', postController.put)
 //router.put('/posts/:id', auth.authToken  ,postController.put)
-
-module.exports = router
 
