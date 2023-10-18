@@ -7,12 +7,12 @@ module.exports = {
         res.status(200).send({ msg: 'Success!, posts found', data: posts })
     },
 
-    // Get by id an user from MongoDB
+    // Get by id a post from MongoDB
     getById: async (req, res) => {
-        const idUser = req.params.id
-        if (!idUser) return res.status(404).send({ msg: 'Error!, Id post does not exist' })
+        const idPost = req.params.id
+        if (!idPost) return res.status(404).send({ msg: 'Error!, Id post does not exist' })
 
-        const post = await Posts.findOne({ _id: idUser })
+        const post = await Posts.findOne({ _id: idPost })
         if (!post) return res.status(404).send({ msg: 'Error!, post does not exist' })
 
         res.status(200).send({ msg: 'Success!, post found', data: post })
@@ -30,4 +30,35 @@ module.exports = {
         res.status(201).send({ msg: 'Success!, post created', data: newPost }
         )
     },
+
+    // Delete: Delete a post from MongoDB
+    delete: async (req, res) => {
+        const idPost = req.params.id
+        if (!idPost) return res.status(404).send({ msg: 'Error!, Id post does not exist' })
+
+        const post = await Posts.findOne({ _id: idPost })
+        if (!post) return res.status(404).send({ msg: 'Error!, post does not exist' })
+
+        const deletedPost = await Posts.deleteOne({ _id: idPost })
+        if (!deletedPost) return res.status(404).send({ msg: 'Error!, post not deleted' })
+
+        res.status(200).send({ msg: 'Success!, post deleted' })
+    },
+
+    // Put: Update a post from MongoDB
+    put: async (req, res) => {
+        const idPost = req.params.id
+        if (!idPost) return res.status(404).send({ msg: 'Error!, Id post does not exist' })
+
+        const post = await Posts.findOne({ _id: idPost })
+        if (!post) return res.status(404).send({ msg: 'Error!, post does not exist' })
+
+        const postToUpdate = req.body
+        const updatedPost = await Posts.updateOne({ _id: idPost }, postToUpdate)
+        if (!updatedPost) return res.status(404).send({ msg: 'Error!, post not updated' })
+
+        res.status(200).send({ msg: 'Success!, post updated', data: postToUpdate })
+    }
+
+
 }

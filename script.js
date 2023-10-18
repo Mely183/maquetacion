@@ -267,13 +267,14 @@ const renderList = (listToRender) => {
 
 const getInfoApi = async () => {
   try {
-    const response = await fetch('http://localhost:5500/postsRoutes/posts/', {
+    const response = await fetch(URL_DB, {
       method: "GET",
     })
     console.log(response)
 
     if(response.status === 200){
       const posts = await response.json()
+
       console.log(posts)
 
     } else if(response.status === 404){
