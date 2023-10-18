@@ -1,7 +1,8 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 5500
+const router = express.Router()
 
 /** Directories */
 const routes = require('./routes/index')
@@ -29,4 +30,3 @@ app.use(routes)
 app.listen(port, () => {
   console.log(`Server app listening on port ${port}`)
 })
-

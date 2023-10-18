@@ -1,10 +1,9 @@
-// const postsControllers = "./backend/controlles/postControllers.js"
-// require('dotenv').config()
-const port = 3000
+const port = 5500
 
-// const URL_DB = URI
 
-const URL_DB = "https://devs-imparables-default-rtdb.firebaseio.com/";
+// const URL_DB = `http://localhost:${port}/postsRoutes/posts`;
+const URL_DB = 'http://localhost:5500/postsRoutes/posts/';
+
 
 const URL_ViewPost ="./view_post/post.html"
 const sectionAddCard = document.querySelector("#section_cards");
@@ -202,14 +201,12 @@ const renderPost = (post, index) => {
     cleanList();
     renderList(post);
   })
-
-
 };
 
 
 const DeletePost = async (id) => {
   console.log(id);
-  const url = URL_DB + id + '.json'
+  const url = URL_DB + id
 
   const deleted = await fetch(url, {
       method: 'DELETE'
@@ -249,19 +246,51 @@ const renderList = (listToRender) => {
   });
 };
 
+// const getInfoApi = async () => {
+//   try {
+//     const response = await fetch(URL_DB, {
+//       method: "GET",
+//     }).then(data => {
+//       return data.json()
+//     });
+//     const parsed = await response.json();
+//     // console.log(parsed);
+//     console.log(response)
+//     const array_post = response.data;
+//     postList = array_post
+//     cleanList();
+//     renderList(array_post);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
+// const getInfoApi = async () => {
+//   try {
+//     const response = await fetch(URL_FIREBASE, {
+//       method: "GET",
+//     });
+//     const parsed = await response.json();
+//     console.log(parsed);
+//     const array_post = parserResponseFireBase(parsed);
+//     postList = array_post
+//     cleanList();
+//     renderList(array_post);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
 const getInfoApi = async () => {
   try {
-    const response = await fetch(URL_DB + '.json', {
-      method: "GET",
-    });
-    const parsed = await response.json();
-    console.log(parsed);
-    const array_post = parserResponseFireBase(parsed);
-    postList = array_post
-    cleanList();
-    renderList(array_post);
+    const response = await fetch(URL_DB)
+    console.log(response)
+
+    const posts = await response.json()
+    console.log
+
   } catch (error) {
-    console.error(error);
+    console.log(error)
   }
 };
 
@@ -286,7 +315,7 @@ searchButton.addEventListener('click', (event)=> {
       filterList.forEach(element => {
         console.log(element.id)
         renderList(filterList);
-        window.location.href = `http://127.0.0.1:${port}/view_post/post.html?id=${element.id}`;
+        window.location.href = `http://localhost:${port}/view_post/post.html?id=${element.id}`;
       });
     } 
   }

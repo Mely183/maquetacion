@@ -4,7 +4,7 @@ const description = document.getElementById('postDescription');
 const saveInfo = document.getElementById('saveInfo');
 const emptyTitleAlert = document.getElementById('emptyTitleAlert');
 
-const URL_DB='https://devs-imparables-default-rtdb.firebaseio.com/'
+const URL_DB='http://localhost:3000/postsRoutes/posts'
 
 const selectElement = document.getElementById('tags'); 
 const selectedTagsContainer = document.getElementById('selectedTagsContainer'); 
@@ -106,7 +106,7 @@ saveInfo.addEventListener('click', async function () {
 });
 
 const postSave = async() =>{
-    const response = await fetch(URL_DB + '.json', {
+    const response = await fetch(URL_DB, {
         method: 'POST',
         headers: { 'Content-type' : 'application/json;charset=UTF-8'},
         body: JSON.stringify(postInfo), 
