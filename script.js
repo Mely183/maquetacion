@@ -1,7 +1,7 @@
 
 
-const URL_FIREBASE =
-  "https://devs-imparables-default-rtdb.firebaseio.com/.json";
+const URL_DB=
+  "localhost:5500/postsRoutes/post";
 
 
 
@@ -202,11 +202,8 @@ const renderPost = (post, index) => {
     cleanList();
     renderList(post);
   })
-
-
 };
 
-const URL_DB = "https://devs-imparables-default-rtdb.firebaseio.com/";
 
 const DeletePost = async (id) => {
   console.log(id);
@@ -252,7 +249,7 @@ const renderList = (listToRender) => {
 
 const getInfoApi = async () => {
   try {
-    const response = await fetch(URL_FIREBASE, {
+    const response = await fetch(URL_DB, {
       method: "GET",
     });
     const parsed = await response.json();
