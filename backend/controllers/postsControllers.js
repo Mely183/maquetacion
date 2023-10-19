@@ -1,4 +1,7 @@
 const Posts = require('../models/postsModels')
+const Users = require ('../models/usersModels')
+const auth = require ('../middlewares/auth')
+
 
 module.exports = {
     // get all posts from mongDB

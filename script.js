@@ -1,13 +1,11 @@
-const port = 3000
+const port = 3000;
 
 const URL_DB = `http://localhost:${port}/`;
 
-
-const URL_ViewPost ="./view_post/post.html"
+const URL_ViewPost = "./view_post/post.html";
 const sectionAddCard = document.querySelector("#section_cards");
 
 const renderPost = (post, index) => {
-  
   const post_container = document.createElement("div");
   const post_image = document.createElement("img");
   const body = document.createElement("div");
@@ -155,13 +153,12 @@ const renderPost = (post, index) => {
   img_bookmark.setAttribute("id", "img_bookmark");
   img_bookmark.setAttribute("src", "/src/bookmark.svg");
   img_bookmark.className = "bookmark__pic";
-  delete_container.setAttribute("id","delete_container");
+  delete_container.setAttribute("id", "delete_container");
   delete_container.className = "deleteButton__container";
-  delete_button.setAttribute("id","delete__button");
-  delete_button.setAttribute("type","button");
+  delete_button.setAttribute("id", "delete__button");
+  delete_button.setAttribute("type", "button");
   delete_button.className = "btn btn-outline-danger";
   delete_button.textContent = "DeletePost";
-
 
   sectionAddCard.appendChild(post_container);
   post_container.appendChild(post_image);
@@ -198,9 +195,8 @@ const renderPost = (post, index) => {
     DeletePost(post.id);
     cleanList();
     renderList(post);
-  })
+  });
 };
-
 
 // const DeletePost = async (id) => {
 //   console.log(id);
@@ -217,8 +213,8 @@ const renderPost = (post, index) => {
 // }
 
 const cleanList = () => {
-  while(sectionAddCard.firstChild){
-      sectionAddCard.removeChild(sectionAddCard.firstChild)
+  while (sectionAddCard.firstChild) {
+    sectionAddCard.removeChild(sectionAddCard.firstChild);
   }
 };
 
@@ -244,72 +240,49 @@ const renderList = (listToRender) => {
   });
 };
 
-// const getInfoApi = async () => {
-//   try {
-//     const response = await fetch(URL_DB, {
-//       method: "GET",
-//     }).then(data => {
-//       return data.json()
-//     });
-//     const parsed = await response.json();
-//     // console.log(parsed);
-//     console.log(response)
-//     const array_post = response.data;
-//     postList = array_post
-//     cleanList();
-//     renderList(array_post);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-
-
 const getInfoApi = async () => {
   try {
-    const response = await fetch(URL_DB + 'postsRoutes/posts', {
+    const response = await fetch(URL_DB + "postsRoutes/posts", {
       method: "GET",
-    })
-    console.log(response)
-
-    if(response.status === 200){
-      const posts = await response.json()
-
-      console.log(posts)
-
-    } else if(response.status === 404){
-      console.log('Datos no encontrados')
+    });
+    console.log(response);
+    if (response.status === 200) {
+      let postList = [];
+      const parsed_posts = await response.json();
+      const posts = parserResponseFireBase(parsed_posts["data"]);
+      console.log(parsed_posts["data"]);
+      postList = posts;
+      cleanList();
+      renderList(posts);
+    } else if (response.status === 404) {
+      console.log("Datos no encontrados");
     }
-
   } catch (error) {
-    console.log(error)
+    console.error(error);
   }
 };
 
-let postList = []
-
 getInfoApi();
 
-const searchButton = document.querySelector("#search__button")
+const searchButton = document.querySelector("#search__button");
 
-searchButton.addEventListener('click', (event)=> {
-  const searchInput = document.querySelector("#data-search")
-  const searchValue = searchInput.value.toLowerCase()
+searchButton.addEventListener("click", (event) => {
+  const searchInput = document.querySelector("#data-search");
+  const searchValue = searchInput.value.toLowerCase();
 
-  const filterList = []
+  const filterList = [];
 
-  for( let index = 0; index<postList.length; index++){
-      
-    const search_case = postList[index].titulo.toLowerCase()
+  for (let index = 0; index < postList.length; index++) {
+    const search_case = postList[index].titulo.toLowerCase();
 
-    if (search_case.includes(searchValue) ){
-      filterList.push(postList[index])
-      filterList.forEach(element => {
-        console.log(element.id)
+    if (search_case.includes(searchValue)) {
+      filterList.push(postList[index]);
+      filterList.forEach((element) => {
+        console.log(element.id);
         renderList(filterList);
         window.location.href = `http://localhost:${port}/view_post/post.html?id=${element.id}`;
       });
-    } 
+    }
   }
-  console.log(filterList)
-  })
+  console.log(filterList);
+});

@@ -1,4 +1,4 @@
-const Users = require('../models/usersModels')
+const Users = require ('../models/usersModels')
 const auth = require ('../middlewares/auth')
 
 

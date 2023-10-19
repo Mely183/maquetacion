@@ -8,23 +8,23 @@ const removeExtension = (fileName) => {
   return fileName.split(".").shift();
 };
 
-// fs.readdirSync(pathRouter).filter((file) => {
-//   const fileWithOutExt = removeExtension(file);
-//   const skip = ["index"].includes(fileWithOutExt);
-//   if (!skip) {
-//     router.use(`/${fileWithOutExt}`, require(`./${fileWithOutExt}`));
-//   }
-// });
 fs.readdirSync(pathRouter).filter((file) => {
   const fileWithOutExt = removeExtension(file);
   const skip = ["index"].includes(fileWithOutExt);
   if (!skip) {
-    const route = require(`./${fileWithOutExt}`);
-    if (typeof route === "function") {
-      router.use(`/${fileWithOutExt}`, route);
-    }
+    router.use(`/${fileWithOutExt}`, require(`./${fileWithOutExt}`));
   }
 });
+// fs.readdirSync(pathRouter).filter((file) => {
+//   const fileWithOutExt = removeExtension(file);
+//   const skip = ["index"].includes(fileWithOutExt);
+//   if (!skip) {
+//     const route = require(`./${fileWithOutExt}`);
+//     if (typeof route === "function") {
+//       router.use(`/${fileWithOutExt}`, route);
+//     }
+//   }
+// });
 
 router.get("*", (req, res) => {
   res.status(404);
