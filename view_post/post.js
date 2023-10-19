@@ -1,5 +1,6 @@
-const URL_DB = 'https://devs-imparables-default-rtdb.firebaseio.com/';
-const port = 5500
+const port = 3000
+const URL_DB = `http://localhost:${port}/`;
+
 
 const search = window.location.search
 //console.log(search);
@@ -20,9 +21,11 @@ buttonEdit.addEventListener('click', (event) => {
     window.location.href = '../edit_post/edit_post.html?id=' + ID_POST
 })
 
+
+
 // Traer informacion de ese hash
 const getInfoById = async () => {
-    const url = URL_DB + ID_POST + '.json'
+    const url = URL_DB + 'postsRoutes/posts/' + ID_POST
 
     console.log(url);
     const info = await fetch(url)
@@ -32,9 +35,9 @@ const getInfoById = async () => {
     console.log(parsed);
 
     // Para que se muestren en los inputs
-    postImg.src = parsed.url
-    postTitle.textContent = parsed.titulo
-    postDescription.textContent = parsed.description
+    postImg.src = parsed.data.url
+    postTitle.textContent = parsed.data.titulo
+    postDescription.textContent = parsed.data.description
 }
 
 getInfoById()

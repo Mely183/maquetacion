@@ -7,10 +7,10 @@ const cors = require("cors")
 
 /** Directories */
 const routes = require('./routes/index')
-// const docs = require('./doc/index')
-//const swaggerJSDoc = require('swagger-jsdoc')
-//const swaggerUI = require('swagger-ui-express')
-// const swaggerSpec = swaggerJSDoc(docs)
+const docs = require('./docs/index')
+const swaggerJSDoc = require('swagger-jsdoc')
+const swaggerUI = require('swagger-ui-express')
+const swaggerSpec = swaggerJSDoc(docs)
 const db = require('./lib/db')
 // const errorHandler = require('./middlewares/errorHandler')
 
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }))
 
 db.connect()
 
-// app.use('/api-doc', swaggerUI.serve, swaggerUI.setup(swaggerSpec))
+app.use('/api-doc', swaggerUI.serve, swaggerUI.setup(swaggerSpec))
 
 /** Routes */
 app.use(routes)

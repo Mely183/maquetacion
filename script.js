@@ -218,11 +218,11 @@ const cleanList = () => {
   }
 };
 
-const parserResponseFireBase = (response) => {
+const parserResponse = (response) => {
   const parsedResponse = [];
   for (const key in response) {
     const element = {
-      id: key,
+      id: response[key]._id,
       titulo: response[key].titulo,
       tags: response[key].tags,
       description: response[key].description,
@@ -249,7 +249,7 @@ const getInfoApi = async () => {
     if (response.status === 200) {
       let postList = [];
       const parsed_posts = await response.json();
-      const posts = parserResponseFireBase(parsed_posts["data"]);
+      const posts = parserResponse(parsed_posts["data"]);
       console.log(parsed_posts["data"]);
       postList = posts;
       cleanList();
